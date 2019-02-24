@@ -62,6 +62,17 @@ module.exports = function(grunt) {
 				files: {
 					'dist/index.html': 'src/pow/views/index.jade'
 				}
+			},
+			build_artis: {
+				options: {
+					data: {
+						debug: false,
+						pretty: true
+					}
+				},
+				files: {
+					'dist/index.html': 'src/artis/views/index.jade'
+				}
 			}
 		},
 		copy: {
@@ -115,6 +126,37 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						cwd: 'src/pow/css/',
+						src: styles,
+						dest: 'dist/css/',
+						filter: 'isFile'
+					},
+					{
+						expand: true,
+						cwd: 'src/js/lib/',
+						src: ['*.*'],
+						dest: 'dist/js/lib'
+					}
+				]
+			},
+			build_artis: {
+				files: [
+					{
+						expand: true,
+						cwd: 'src/fonts/',
+						src: ['*.*'],
+						dest: 'dist/fonts/',
+						filter: 'isFile'
+					},
+					{
+						expand: true,
+						cwd: 'src/images/',
+						src: ['*.*'],
+						dest: 'dist/',
+						filter: 'isFile'
+					},
+					{
+						expand: true,
+						cwd: 'src/artis/css/',
 						src: styles,
 						dest: 'dist/css/',
 						filter: 'isFile'
@@ -192,5 +234,6 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', ['clean:build', 'clean:js', 'clean:css', 'jade:build', 'copy:build', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
 	grunt.registerTask('pow', ['clean:build', 'clean:js', 'clean:css', 'jade:build_pow', 'copy:build_pow', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
+	grunt.registerTask('artis', ['clean:build', 'clean:js', 'clean:css', 'jade:build_artis', 'copy:build_artis', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
 	grunt.registerTask('poa',   'default');
 };
