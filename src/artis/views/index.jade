@@ -5,6 +5,14 @@ block content
   div.container-fluid(ng-controller='StatsCtrl')
     div.row(ng-cloak)
       div.col-xs-6.col-sm-4.col-md-3.col-lg-2.stat-holder
+        div.big-info.artis.text-success
+          div.pull-left.icon-full-width
+            i
+          div.big-details-holder
+            span.small-title network name
+            span.big-details {{ networkName }}
+          div.clearfix
+      div.col-xs-6.col-sm-4.col-md-3.col-lg-2.stat-holder
         div.big-info.bestblock.text-info
           div.pull-left.icon-full-width
             i.icon-block
@@ -36,14 +44,6 @@ block content
           div.big-details-holder
             span.small-title gas price
             span.big-details {{ bestStats.gasPrice.toString() | gasPriceFilter }}
-          div.clearfix
-      div.col-xs-6.col-sm-4.col-md-3.col-lg-2.stat-holder
-        div.big-info.gasprice.text-highlight
-          div.pull-left.icon-full-width
-            i.icon-difficulty
-          div.big-details-holder
-            span.small-title gas limit
-            span.big-details {{ bestStats.block.gasLimit }} gas
           div.clearfix
       div.col-xs-6.col-sm-4.col-md-3.col-lg-2.stat-holder
         div.big-info.active-nodes(class="{{ nodesActive | nodesActiveClass : nodesTotal }}")
