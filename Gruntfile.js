@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 			js: ['dist/js/*.*', '!dist/js/netstats.*'],
 			css: ['dist/css/*.css', '!dist/css/netstats.*.css']
 		},
-		jade: {
+		pug: {
 			build: {
 				options: {
 					data: {
@@ -228,12 +228,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-jade');
+	grunt.loadNpmTasks('grunt-contrib-pug');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask('default', ['clean:build', 'clean:js', 'clean:css', 'jade:build', 'copy:build', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
-	grunt.registerTask('pow', ['clean:build', 'clean:js', 'clean:css', 'jade:build_pow', 'copy:build_pow', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
-	grunt.registerTask('artis', ['clean:build', 'clean:js', 'clean:css', 'jade:build_artis', 'copy:build_artis', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
+	grunt.registerTask('default', ['clean:build', 'clean:js', 'clean:css', 'pug:build', 'copy:build', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
+	grunt.registerTask('pow', ['clean:build', 'clean:js', 'clean:css', 'pug:build_pow', 'copy:build_pow', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
+	grunt.registerTask('artis', ['clean:build', 'clean:js', 'clean:css', 'pug:build_artis', 'copy:build_artis', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
 	grunt.registerTask('poa',   'default');
 };
